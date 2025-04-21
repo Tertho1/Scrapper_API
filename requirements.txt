@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+pillow
+matplotlib
+fastapi
+uvicorn
+pydantic
+opencv-python
+pytesseract
+numpy
