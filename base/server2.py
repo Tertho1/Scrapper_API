@@ -121,8 +121,12 @@ async def verify_doctor(request: VerifyRequest):
         with open("doctor_image.jpg", "wb") as f:
             f.write(image_bytes)
 
-        registration_status_div = doctor_info.find("div", {"class": "form-group row mb-0"})
-        registration_status=registration_status_div.find_all_next('span', {'class': 'font-weight-bold'})[0].text.strip()
+        registration_status_div = doctor_info.find(
+            "div", {"class": "form-group row mb-0"}
+        )
+        registration_status = registration_status_div.find_all_next(
+            "span", {"class": "font-weight-bold"}
+        )[0].text.strip()
         # Build result with image and data
         result = {
             "doctor_image_base64": base64.b64encode(image_bytes).decode("utf-8"),
