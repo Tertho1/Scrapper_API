@@ -105,8 +105,9 @@ async def verify_doctor(request: VerifyRequest):
             )
 
         profile_div = doctor_info.find("div", {"class": "profile mr-1 mb-2"})
+        
         doctor_image_tag = profile_div.find("img", {"class": "rounded img-responsive mb-2"})
-        doctor_image_url = doctor_image_tag.get("src")
+        # doctor_image_url = doctor_image_tag.get("src")
         # Process doctor
         # doctor_image_tag = doctor_info.find(
         #     "img", {"class": "rounded img-responsive mb-2"}
