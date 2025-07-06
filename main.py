@@ -104,10 +104,13 @@ async def verify_doctor(request: VerifyRequest):
                 status_code=400, detail="Invalid CAPTCHA or registration number"
             )
 
+        profile_div = doctor_info.find("div", {"class": "profile mr-1 mb-2"})
+        doctor_image_tag = profile_div.find("img", {"class": "rounded img-responsive mb-2"})
+        doctor_image_url = doctor_image_tag.get("src")
         # Process doctor image
-        doctor_image_tag = doctor_info.find(
-            "img", {"class": "rounded img-responsive mb-2"}
-        )
+        # doctor_image_tag = doctor_info.find(
+        #     "img", {"class": "rounded img-responsive mb-2"}
+        # )
         if not doctor_image_tag:
             raise HTTPException(status_code=404, detail="Doctor image not found")
 
